@@ -30,8 +30,9 @@ app.get('/level1', (req, res) => {
 app.get('/submit-get', (req, res) => {
     // URL: /submit-get?username=nodejs
     const username = req.query.username;
+    const password = req.query.password;
     res.send(`<h1>Level 1: GET 요청 성공!</h1>
-              <p>환영합니다, ${username}님!</p>`);
+              <p>환영합니다, ${username}님! 비번: ${password} </p>`);
 });
 
 // ---
@@ -52,8 +53,9 @@ app.get('/level2', (req, res) => {
 app.post('/submit-post', (req, res) => {
     // POST 요청으로 받은 폼 데이터는 req.body에 담깁니다.
     const username = req.body.username;
+    const password = req.query.password;
     res.send(`<h1>Level 2: POST 요청 성공!</h1>
-              <p>환영합니다, ${username}님!</p>`);
+              <p>환영합니다, ${username}님! 비번: ${password}</p>`);
 });
 
 // ---
@@ -70,9 +72,9 @@ app.get('/level3', (req, res) => {
     res.render('form-level-03'); 
 });
 app.post('/submit-multiple', (req, res) => {
-    const { name, email, age } = req.body;
+    const { name, email, age, username, password } = req.body;
     res.send(`<h1>Level 3: 여러 필드 처리 성공!</h1>
-              <p>이름: ${name}, 이메일: ${email}, 나이: ${age}</p>`);
+              <p>이름: ${name}, 이메일: ${email}, 나이: ${age}, ID:${username}, 비번: ${password}</p>`);
 });
 
 // ---
